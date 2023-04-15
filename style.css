@@ -1,5 +1,10 @@
 :root {
   font-size: 10px;
+  --color-primary: #4c566a;
+  --color-secondary: #434c5e;
+  --color-tertiary: #;
+  --color-button: #;
+  --color-link: #;
 }
 
 html,
@@ -27,34 +32,36 @@ body {
 
 .navigationBar {
   position: sticky;
-  background-color: #555;
+  background-color: var(--color-primary);
+
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
 }
 
 .userSection {
-  background-color: #444;
-
+  /* background-color: red; */
   display: grid;
   grid-template-rows: 15fr 85fr;
 }
 
 .header {
   position: sticky;
-  background-color: #777;
+  background-color: var(--color-primary);
 }
 
 main.userStatistics {
   width: 100%;
-  background-color: #999;
+  background-color: #484564;
   display: grid;
   grid-template-columns: 70fr 30fr;
 }
 
 section.userProjects {
-  background-color: #888;
+  background-color: #484564;
 }
 
 section.userRecommendations {
-  background-color: #666;
+  background-color: #484564;
 }
 
 li {
@@ -72,7 +79,7 @@ li {
 }
 
 .project {
-  background-color: #666;
+  background-color: #242039;
   width: 246px;
   height: 200px;
 }
@@ -81,7 +88,7 @@ li {
   margin: 20px;
   height: 45%;
   padding: 20px;
-  background-color: #555;
+  background-color: #434c5e;
   display: flex;
   flex-direction: column;
 }
@@ -90,7 +97,24 @@ li {
   padding: 20px;
   height: 30%;
   margin: 20px;
-  background-color: #444;
+  background-color: #3b4252;
   display: flex;
   flex-direction: column;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.menuItem {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: start;
+}
+
+.svgIcon {
+  height: 25px;
 }
