@@ -1,10 +1,13 @@
 :root {
   font-size: 10px;
-  --color-primary: #4c566a;
-  --color-secondary: #434c5e;
-  --color-tertiary: #;
-  --color-button: #;
-  --color-link: #;
+  --color-primary: #57cc99;
+  --color-secondary: #38a3a5;
+  --color-tertiary: #e2eafc;
+  --color-text-primary: #333;
+  --color-text-secondary: #444;
+  --color-box-shadow: rgba(0, 0, 0, 0.1);
+  --color-box-shadow-hover: rgba(0, 0, 0, 0.2);
+  --color-box-shadow-active: rgba(0, 0, 0, 0.3);
 }
 
 html,
@@ -23,8 +26,10 @@ body {
 }
 
 svg {
-  fill: #ddd;
+  fill: var(--color-text-primary);
   width: 30px;
+
+  transition: all 0.2s;
 }
 
 li {
@@ -41,9 +46,9 @@ li {
 }
 
 .navigationBar {
-  background-color: rgb(245, 106, 90);
+  background-color: var(--color-primary);
 
-  color: #ddd;
+  color: var(--color-text-primary);
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
@@ -51,6 +56,8 @@ li {
 
 .menu li,
 .settings li {
+  font-size: 1.4rem;
+  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -59,7 +66,14 @@ li {
   margin-left: -30px;
 }
 
+.menu li span,
+.settings li span {
+  margin-top: 3px;
+  transition: all 0.2s;
+}
+
 .copyright {
+  color: var(--color-text-secondary) !important;
   left: 10px;
   bottom: 10px;
   position: absolute;
@@ -88,7 +102,7 @@ li:hover svg,
 }
 
 .header {
-  background-color: salmon;
+  background-color: var(--color-secondary);
 
   display: flex;
   flex-direction: column;
@@ -96,7 +110,7 @@ li:hover svg,
 
 .header .upperSection {
   margin-top: 5px;
-  background-color: salmon;
+  background-color: var(--color-secondary);
   display: flex;
 
   align-items: center;
@@ -112,23 +126,49 @@ li:hover svg,
   justify-content: space-between;
 }
 
+.notifications svg {
+  border-radius: 20px;
+  padding: 3px 8px;
+  background-color: var(--color-box-shadow);
+  fill: #eee;
+  height: 25px;
+}
+
+.notifications svg:hover,
+.notifications svg:focus {
+  background-color: var(--color-box-shadow-hover);
+}
+
+.notifications svg:active {
+  background-color: var(--color-box-shadow-active);
+}
+
 .user .avatar img {
   height: 45px;
   border-radius: 50%;
+  border: 2px solid #eee;
+  transition: all 0.3s;
+}
+
+.user .avatar img:hover {
+  filter: brightness(0.8);
 }
 
 .search {
-  width: 40%;
+  width: 60%;
   position: relative;
 }
 
 #searchBar {
-  background-color: #eee;
+  background-color: var(--color-tertiary);
   border: none;
   outline: none;
   width: 100%;
   border-radius: 10px;
   padding: 5px 20px;
+  box-shadow: 0 0 3px 1px var(--color-box-shadow);
+
+  transition: all 0.3s;
 }
 
 #searchBtn {
@@ -149,6 +189,7 @@ li:hover svg,
 #searchBar:active,
 #searchBar:focus {
   background-color: #fff;
+  box-shadow: none;
 }
 
 .user .username {
@@ -157,14 +198,16 @@ li:hover svg,
 }
 
 .header .lowerSection {
+  /* width: 900px; */
   display: flex;
   height: 75px;
   align-items: center;
   justify-content: space-between;
-  margin: 0 20px;
+  margin: 0 10px;
 }
 
 .lowerSection .greet {
+  margin-left: 10px;
   width: 300px;
   display: flex;
   align-items: center;
@@ -174,6 +217,7 @@ li:hover svg,
 .greet .pfp img {
   width: 70px;
   border-radius: 50%;
+  border: 2px solid #fff;
 }
 
 .greetingText {
@@ -185,7 +229,7 @@ li:hover svg,
 
 .greetingText span:first-child {
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .lowerSection .actions {
@@ -199,19 +243,19 @@ li:hover svg,
   padding: 0px 8px;
   border: none;
   border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--color-box-shadow);
   transition: all 0.3s;
   fill: #eee;
 }
 
 .actions button:hover,
 .actions button:focus {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: var(--color-box-shadow-hover);
   outline: none;
 }
 
 .actions button:active {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: var(--color-box-shadow-active);
   fill: #fff;
 }
 
@@ -221,47 +265,55 @@ li:hover svg,
 }
 
 .userStatistics {
-  background-color: #eee;
+  background-color: var(--color-tertiary);
   display: grid;
   grid-template-columns: 80fr 20fr;
 }
 
 .userProjects {
-  color: #444;
-  width: 96%;
+  border: 5px solid #69bf9a;
+  color: #eee;
+  width: 99%;
   height: 100%;
-  /* background-color: #aaa; */
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .userProjects span:first-child {
+  color: var(--color-text-primary);
   height: 40px;
+  margin-top: 10px;
+  margin-left: 45px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-self: flex-start;
 }
 
 .projects {
-  width: 90%;
+  width: 91%;
   height: 950%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 20px;
+
+  
 }
 
 .project {
-  background-color: rgb(235, 179, 130);
+  background-color: var(--color-secondary);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  box-shadow: 0 0 3px 1px var(--color-box-shadow);
+
 }
 
 .userRecommendations {
-  background-color: rgb(255, 150, 108);
+  background-color: var(--color-primary);
 
   color: #fff;
 
@@ -273,25 +325,53 @@ li:hover svg,
 .userRecommendations span {
   align-self: flex-start;
   margin-top: 15px;
+  margin-bottom: -8px;
   margin-left: 28px;
+  color: #333;
+  font-weight: 400;
 }
 
 .announcements,
 .pins {
   margin: 20px;
-  background-color: #eee;
+  background-color: var(--color-tertiary);
   width: 70%;
-  height: 40%;
-  padding: 0px 10px;
+  height: max-content;
+  padding: 5px 16px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
+  text-align: start;
   justify-content: space-evenly;
+  text-overflow: ellipsis;
+
+  box-shadow: 0 0 3px 1px var(--color-box-shadow);
 }
 
 .announcement {
-  color: #444;
+  color: var(--color-text-secondary);
+}
+
+.announcement:nth-child(1),.announcement:nth-child(2){
+  padding: 5px 0;
+  border-bottom: 1px solid #999;
+}
+
+.announcement {
+  margin: 5px;
+}
+
+.announcement span:first-child {
+  margin-left: 0;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.announcement span:last-child {
+  margin-left: 0;
+  padding-bottom: 5px;
+  font-size: 10px;
 }
 
 .pins {
@@ -299,5 +379,5 @@ li:hover svg,
 }
 
 .pin {
-  color: #444;
+  color: var(--color-text-secondary);
 }
