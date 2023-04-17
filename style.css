@@ -97,8 +97,9 @@ li:hover svg,
 }
 
 .userSection {
+  height: 100vh;
   display: grid;
-  grid-template-rows: 22fr 78fr;
+  grid-template-rows: 22vh 78vh;
 }
 
 .header {
@@ -234,6 +235,7 @@ li:hover svg,
 
 .lowerSection .actions {
   width: 210px;
+  gap: 10px;
   align-self: flex-end;
   display: flex;
   justify-content: space-evenly;
@@ -283,7 +285,7 @@ li:hover svg,
 .userProjects span:first-child {
   color: var(--color-text-primary);
   height: 40px;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   margin-left: 45px;
   display: flex;
   align-items: center;
@@ -291,22 +293,91 @@ li:hover svg,
 }
 
 .projects {
-  width: 91%;
-  height: 950%;
+  margin-top: 0px;
+  width: 95%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 200px));
+  justify-items: center;
+  align-content: center;
+  row-gap: 14px;
+  column-gap: 20px;
 }
 
 .project {
-  background-color: var(--color-secondary);
+  margin-bottom: 0px !important;
+  width: 100%;
+  height: min-content;
+  border-left: 6px solid var(--color-primary);
+  background-color: var(--color-tertiary);
   border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
+  fill: #333 !important;
   box-shadow: 0 0 3px 1px var(--color-box-shadow);
+
+  transition: all 0.3s;
+}
+
+.aboutProject {
+  margin: 0 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+}
+
+.project a {
+  text-decoration: none;
+}
+
+.project img {
+  border-radius: 5px 7px 0px 0px;
+  width: 100%;
+}
+
+.project span {
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 3px;
+  text-align: start;
+}
+
+.aboutProject span:first-child {
+  margin: 0;
+  margin-left: 3px;
+  margin-bottom: 5px;
+  height: min-content;
+}
+
+.aboutProject span:last-child {
+  font-size: 10px;
+  max-height: 20px;
+  text-overflow: ellipsis;
+  font-weight: 400;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.project .projectBtns {
+  height: 40px;
+  transform: translateY(-6px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.project svg {
+  fill: var(--color-text-secondary);
+  height: 20px;
+}
+
+.project:hover {
+  border-left: 6px solid var(--color-secondary);
+  transform: scale(1.1);
+}
+
+.project:hover svg {
+  fill: #38a3a5;
 }
 
 .userRecommendations {
